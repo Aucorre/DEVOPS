@@ -2,8 +2,8 @@ use std::io::{prelude::*, BufReader};
 use std::net::{TcpListener, TcpStream};
 use std::collections::HashMap;
 fn main() {
+    println!("Listening on localhost:8000/ping");
     let listener = TcpListener::bind("localhost:8000").unwrap();
-
     for stream in listener.incoming() {
         let stream = stream.unwrap();
 
