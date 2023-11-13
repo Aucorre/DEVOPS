@@ -13,3 +13,9 @@ Pour lancer le serveur :
 ```sh
 cargo run
 ```
+
+Ensuite, on peut faire des requêtes sur `localhost:8080/ping`.
+
+Soit par curl, soit par navigateur.
+
+Le résultat sera directement affiché.
