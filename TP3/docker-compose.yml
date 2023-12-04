@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  monapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - "8080"
+    deploy:
+      replicas: 4
+    restart: always
+    networks:
+      - monreseau
+  proxy:
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - monapp
+    networks:
+      - monreseau
+
+networks:
+  monreseau:
+    driver: bridge
